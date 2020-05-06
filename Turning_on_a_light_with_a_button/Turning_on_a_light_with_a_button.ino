@@ -4,8 +4,7 @@
 int buttonState = 0;
 
 void setup() {
-pinMode(GREEN_LED_PIN), OUTPUT); // making the light an output i think
-
+pinMode(GREEN_LED_PIN), OUTPUT); // making the light an output i think however there is an error of too few arguements to funtion
 pinMode(BUTTON_PIN, INPUT);  // making the button an input on the board???
 
 
