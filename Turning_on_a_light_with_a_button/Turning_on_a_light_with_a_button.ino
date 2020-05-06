@@ -1,6 +1,6 @@
 /*
  * KNOWN ISSUES:
- * pinMode(GREEN_LED_PIN), OUTPUT); there is an error of too few arguements to funtion
+ * 
  */
 
 #define GREEN_LED_PIN A5 // LED will turn on if the button is pressed 
