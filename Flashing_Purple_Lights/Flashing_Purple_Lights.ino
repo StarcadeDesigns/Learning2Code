@@ -1,3 +1,8 @@
+/*
+ * KNOWN ISSUES
+ * 1. too many arguements to function 'void dely9long unsigned in)'
+ */
+
 #define PURPLE_LED_PIN 13 // The LED is Purple it will go on and off with a delay of .5 seconds
 #define LED_DELAY 11
 
