@@ -16,6 +16,11 @@ char playerUsername = "Spongebob"; // for the player to use to put in a username
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
+Serial.println(START_TEXT);
+Serial.println(playerUsername);
+/*
+ * have () agaisnts the funtion/whatever
+ */
 }
 
 void loop() {
