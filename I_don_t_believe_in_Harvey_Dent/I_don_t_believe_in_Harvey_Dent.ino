@@ -1,6 +1,15 @@
 /*
  * KNOWN ISSUES:  I think I am still missing something in my loop but I am not able to rememeber or identify it.
  * 
+ * You need to move playerUsername to be a constant instead of a var for it to work in this IDE.
+ * This line should be inside your if statement. You only want it to count down IF it has been a full 1 second since last checked. 
+ *  The way you have it now would countdown almost instantly and then only every 1 second perform all other actions
+ *    countDown--; // ideally this counts down 
+ * The other thing that is close but still off is that your button press is inside of your time IF loop. You want the button to happen any time its pressed not only when its been a full second.
+ *  Just as a learning opporutnity dont be afraid to separate things that are unrelated.
+ *    Create a function for the button press that is separate from your loop. Then ONLY when you want to check for button presses call that function. (EVEN IF YOU WANT IT TO CHECK ALL THE TIME)!
+ *    
+ * Try those few updates and reupload.
  */
 
 
