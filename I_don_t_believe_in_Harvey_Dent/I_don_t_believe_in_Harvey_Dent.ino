@@ -5,6 +5,12 @@ long randNumber;
 #define BUTTON_KILL A5 // this button gives up the game and makes you forfit 
 int buttonState = 0;
 
+/*
+ * need:
+ * bool
+ * delayTime
+ * 
+ */
 
 
 void setup() {
@@ -12,7 +18,7 @@ void setup() {
 Serial.begin(9600);
 Serial.println(WELCOME_SCREEN);
 Serial.println(playerUsername);
-pinMode(BUTTON_KILL, INPUT); // kills player 
+pinMode(BUTTON_KILL, INPUT); // tells arduino to end loop
 
 }
 
@@ -22,7 +28,6 @@ countDown--; // ideally this counts down
 Serial.println(countDown); // I thnk this will count down to 0 
 delay(1000); // goes down by 1 second
 randNumber = random(0-1000); // gets a random number and you are looking to get a prime number
-delay(1000); //  get a new number every 1 second
 buttonState = digitalRead(BUTTON_KILL); // this tells the CPU to check if button is pressed
 
 if (buttonState == HIGH) {
