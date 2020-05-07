@@ -24,8 +24,8 @@ pinMode(BUTTON_KILL, INPUT); // tells arduino to end loop
 
 void loop() {
   // put your main code here, to run repeatedly:
-countDown--; // ideally this counts down 
-Serial.println(countDown); // I thnk this will count down to 0 
+Serial.println(countDown); // I thnk this will count down to 
+0countDown--; // ideally this counts down 
 delay(1000); // goes down by 1 second
 randNumber = random(0-1000); // gets a random number and you are looking to get a prime number
 buttonState = digitalRead(BUTTON_KILL); // this tells the CPU to check if button is pressed
