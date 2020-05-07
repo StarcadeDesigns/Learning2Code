@@ -1,7 +1,6 @@
 /*
  * KNOWN ISSUES:  I think I am still missing something in my loop but I am not able to rememeber or identify it.
  * 
- * You need to move playerUsername to be a constant instead of a var for it to work in this IDE.
  * This line should be inside your if statement. You only want it to count down IF it has been a full 1 second since last checked. 
  *  The way you have it now would countdown almost instantly and then only every 1 second perform all other actions
  *    countDown--; // ideally this counts down 
@@ -15,13 +14,15 @@
 
 #define WELCOME_SCREEN "Don't Believe in Harvey Dent" // Game Name
 #define BUTTON_KILL A5 // this button gives up the game and makes you forfit 
+#define playerUsername "Two Face" // Default Usernam feel free to change it
 
-char playerUsername = "Two Face"; // Default Usernam feel free to change it
+
 int countDown = 60; // you have 60 seconds to put in your username before you die. 
+const long interval =1000;
 unsigned long previousMillis = 0;
 unsigned long startMillis;
 unsigned long currentMillis;
-const long interval =1000;
+
 long randNumber; 
 int buttonState = 0;
 bool gameOver = false;
@@ -45,8 +46,8 @@ void loop() {
   previousMillis = currentMillis;
   randNumber = random(0-1000); // gets a random number and you are looking to get a prime number
   buttonState = digitalRead(BUTTON_KILL); // this tells the CPU to check if button is pressed
-
-    if (buttonState == HIGH) 
+  }
+   { if (buttonState == HIGH) 
       gameOver = true;
  
 }
