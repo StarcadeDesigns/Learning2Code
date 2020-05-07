@@ -1,14 +1,14 @@
 /*
  * KNOWN ISSUES:  I think I am still missing something in my loop but I am not able to rememeber or identify it.
  * 
- * This line should be inside your if statement. You only want it to count down IF it has been a full 1 second since last checked. 
- *  The way you have it now would countdown almost instantly and then only every 1 second perform all other actions
- *    countDown--; // ideally this counts down 
- * The other thing that is close but still off is that your button press is inside of your time IF loop. You want the button to happen any time its pressed not only when its been a full second.
- *  Just as a learning opporutnity dont be afraid to separate things that are unrelated.
- *    Create a function for the button press that is separate from your loop. Then ONLY when you want to check for button presses call that function. (EVEN IF YOU WANT IT TO CHECK ALL THE TIME)!
- *    
- * Try those few updates and reupload.
+ * Try adding something that prints to serail the random number that was generated so we can see what number it picked.
+ * 
+ * Still not quite right on your other placement of items. Remember everything runs in order from top to bottom.
+ * That means that "IF" something is not true it will SKIP the whole section inside of the {}
+ * You had the line that checks if the button is pressed inside the IF. so... IF the time was not counting down it would never check the btn
+ *  Except 1x per second. by moving this outside of the if {} it can run on every loop.
+ *  
+ *  I added a ton of my own comments below for you to read through and follow along with to see if it makes more sense.
  */
 
 
@@ -40,17 +40,19 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.println(countDown); // I thnk this will count down to 
-  countDown--; // ideally this counts down 
-  if (currentMillis - previousMillis >= interval) {
-  previousMillis = currentMillis;
-  randNumber = random(0-1000); // gets a random number and you are looking to get a prime number
-  buttonState = digitalRead(BUTTON_KILL); // this tells the CPU to check if button is pressed
+  currentMillis = millis(); // sets the variable for currentMillis = current time
+  if (currentMillis - previousMillis >= interval) { // is the current time minus the previous time >= interval
+    Serial.println(countDown); // if yes ^ this displays the current time left in serial.
+    countDown--; // if yes ^^ this reduces your count down by 1
+    previousMillis = currentMillis; // if it has been more than the interval (1 second) then set the new previous time = current time
+    randNumber = random(0-1000); // gets a random number and you are looking to get a prime number
   }
-   { if (buttonState == HIGH) 
-      gameOver = true;
- 
-}
+  // anything beyond this point will run no matter what the time is or will be or wants to be in the future.
+  // it will run no matter what because its not wrapped inside your if statement.
+  // part of the issue is you didnt indent any of the above to make it clear what was included in the if vs outside of it.
+  buttonState = digitalRead(BUTTON_KILL); // this sets the variable to high or low so we know if it is pressed or not.
+  if (buttonState == HIGH) // then we check the value we just set for that varialbe to see if it equals high or pressed
+      gameOver = true; // if ^ true then game over
 }
 /* the entire game is putting the username in in 60 seconds and then getting a prime number from the RNG
  *  
