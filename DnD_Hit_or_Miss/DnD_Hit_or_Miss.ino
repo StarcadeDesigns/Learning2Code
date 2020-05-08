@@ -3,7 +3,6 @@
 
 long d20Roll;
 int buttonState = 0;
-bool stopRng = true;
 
 void setup() {
   // put your setup code here, to run once:
@@ -19,6 +18,6 @@ void loop() {
   Serial.print(ROLL_BUTTON);
   if (buttonState == HIGH) {
     d20Roll = random(1,21);
-    Serial.print(d20Roll);
+    //Serial.print(d20Roll);
   }
 }
