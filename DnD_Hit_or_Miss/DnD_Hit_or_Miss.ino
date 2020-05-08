@@ -1,5 +1,5 @@
 #define PLAYER_NAME "Sir Maplebottom"
-#define ROLL_BUTTON 3 // Button will start the RNG 
+#define ROLL_BUTTON 9 // Button will start the RNG 
 
 long d20Roll;
 int buttonState = 0;
@@ -15,7 +15,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  buttonState = digitalRead(ROLL_BUTTON); // The RNG shouldn't happen if button isn't pressed
+ // buttonState = digitalRead(ROLL_BUTTON); // The RNG shouldn't happen if button isn't pressed
  // Serial.print(buttonState);
  if (Serial.available() > 0) {
     // read the incoming byte:
@@ -24,9 +24,14 @@ void loop() {
     // say what you got:
     Serial.print("I received: ");
     Serial.println(incomingByte, DEC);
+    if (incomingByte == 49){ 
+      buttonState = 1;
+    } else if (incomingByte == 10){
+      buttonState = 0;
+    }
   }
   if (buttonState == HIGH) {
     d20Roll = random(1,21);
-    Serial.print(d20Roll);
+    Serial.println(d20Roll);
   }
 }
