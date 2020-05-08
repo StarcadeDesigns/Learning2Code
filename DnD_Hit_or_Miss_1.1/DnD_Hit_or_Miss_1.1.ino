@@ -15,7 +15,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   buttonState = digitalRead(ROLL_BUTTON); // The RNG shouldn't happen if button isn't pressed
-  //Serial.print(buttonState);
+ // Serial.print(buttonState);
   if (buttonState == HIGH) {
     d20Roll = random(1,21);
     Serial.print(d20Roll);
