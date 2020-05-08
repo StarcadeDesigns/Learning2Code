@@ -1,5 +1,5 @@
 #define START_TEXT "SYN Snugglez" // this is the start up text to appear 
-char playerUsername = "Spongebob"; // for the player to use to put in a username
+#define PLAYER_USERNAME "Spongebob" // for the player to use to put in a username
 
 /*
  *  Constant name = #define UPPER_CASE
@@ -17,7 +17,7 @@ void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
 Serial.println(START_TEXT);
-Serial.println(playerUsername);
+Serial.println(PLAYER_USERNAME);
 /*
  * have () agaisnts the funtion/whatever
  */
