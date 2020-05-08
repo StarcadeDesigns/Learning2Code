@@ -3,8 +3,8 @@
  * 
  */
 
-#define GREEN_LED_PIN A5 // LED will turn on if the button is pressed 
-#define BUTTON_PIN A0 // The button will turn the LED light on while it is pressed
+#define GREEN_LED_PIN 22 // LED will turn on if the button is pressed 
+#define BUTTON_PIN 23 // The button will turn the LED light on while it is pressed
 
 int buttonState = 0;
 
