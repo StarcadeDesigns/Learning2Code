@@ -6,6 +6,7 @@
 #define WELCOME_SCREEN "Don't Believe in Harvey Dent" // Game Name
 #define BUTTON_KILL A5 // this button gives up the game and makes you forfit 
 #define PLAYER_USERNAME "Two Face" // Default Usernam feel free to change it
+#define LED 13
 
 int countDown = 60; // you have 60 seconds to put in your username before you die. 
 const long interval =1000;
@@ -28,12 +29,15 @@ void setup() {
   Serial.println("Correct Number: ");
   Serial.println(correctNumber);
   pinMode(BUTTON_KILL, INPUT); // tells arduino to end loop
+  pinMode(LED, OUTPUT);
+  digitalWrite(LED,LOW);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   if (correctNumber==randNumber) {
     Serial.println("YOU WIN!");
+    digitalWrite(LED,HIGH);
     gameOver = true;
   } else if (countDown>0) {
     currentMillis = millis();
